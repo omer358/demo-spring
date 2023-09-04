@@ -27,7 +27,7 @@ public class ProductServiceController {
         return new ResponseEntity<>(productRepo.values(), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/products  ",method = RequestMethod.POST)
+    @PostMapping("/products")
     public ResponseEntity<Object> createProduct(@RequestBody Product product){
         productRepo.put(product.getId(),product);
         return new ResponseEntity<>("Product is created successfully",HttpStatus.CREATED);
