@@ -32,4 +32,15 @@ public class ProductServiceController {
         productRepo.put(product.getId(),product);
         return new ResponseEntity<>("Product is created successfully",HttpStatus.CREATED);
     }
+
+    @RequestMapping(value = "products/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Object> updateProduct(
+            @PathVariable String id,
+            @RequestBody Product product){
+        productRepo.remove(id);
+        product.setId(id);
+        productRepo.put(id,product);
+        return new ResponseEntity<>("Product updated successfully",HttpStatus.OK);
+
+    }
 }
