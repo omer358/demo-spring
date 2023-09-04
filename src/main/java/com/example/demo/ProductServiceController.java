@@ -43,4 +43,12 @@ public class ProductServiceController {
         return new ResponseEntity<>("Product updated successfully",HttpStatus.OK);
 
     }
+
+    @DeleteMapping("/products/{id}")
+    public ResponseEntity<Object> deleteProduct(
+            @PathVariable String id
+    ){
+        productRepo.remove(id);
+        return new ResponseEntity<>("Product is deleted successfully", HttpStatus.OK);
+    }
 }
